@@ -7,7 +7,9 @@ body {
     min-height: 1400px;
 }
 
-
+.user-welcome p {
+    font-size: 19px;
+}
 
 label {
     font-size: 20px; /* Vous pouvez ajuster la taille du texte selon vos préférences */
@@ -128,4 +130,29 @@ header {
 
 span {
     color: #F90000;
+}
+ /* Ajoutez ici votre style CSS pour le message de confirmation */
+.confirmation {
+background-color: #4CAF50;
+color: white;
+padding: 10px;
+text-align: center;
+position: absolute;
+top: 20px; /* Réglez la distance depuis le haut selon vos besoins */
+right: 20px; /* Réglez la distance depuis la droite selon vos besoins */
+border-radius: 5px;
+}
+.close-button {
+color: white;
+float: right;
+cursor: pointer;
+margin-left: 5px;
+}
+
+.form-group p{
+    background-color: red;
+     color: white;
+      font-size: 25px;
+       border-radius: 15px;
+        text-align: center;
 }

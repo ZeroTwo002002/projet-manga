@@ -13,8 +13,5 @@ try {
     echo "Erreur : " . $e->getMessage();
 }
 
-// Sélectionner les titres, le contenu et la date de publication des actualités depuis la base de données
-
-
 
 ?>

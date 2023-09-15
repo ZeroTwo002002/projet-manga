@@ -1,3 +1,6 @@
+<?php 
+session_start()
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,13 +12,24 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-        <a class="navbar-brand" href="#"><span>D.</span>Manga Actu</a>
-        <form class="form-inline ml-auto">
-            <input class="form-control mr-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
-            <button class="btn mr-2" type="submit">Rechercher</button>
-            <button class="btn" type="submit">Coonexion</button>
-        </form>
-    </nav>
+    <a class="navbar-brand" href="#"><span>D.</span>Manga Actu</a>
+    <?php
+    // Vérifiez si l'utilisateur est connecté en vérifiant la présence des variables de session
+    if (isset($_SESSION["UserID"], $_SESSION["Pseudo"])) {
+        echo '<div class="user-welcome ml-auto d-flex align-items-center">';
+        echo '    <p class="mr-3 mb-0">Bonjour ' . $_SESSION["Pseudo"] . '</p>';
+        echo '    <a href="utilisateur/deconnexion.php" class="btn btn-primary">Déconnexion</a>';
+        echo '</div>';
+    } else {
+        // Si l'utilisateur n'est pas connecté, affichez les boutons Connexion et Inscription
+        echo '<form class="form-inline ml-auto ">';
+        echo '    <input class="form-control mr-2" type="search" placeholder="Rechercher" aria-label="Rechercher">';
+        echo '    <a href="utilisateur/inscription.php" class="btn btn-primary mr-2">Inscription</a>';
+        echo '    <a href="utilisateur/connexion.php" class="btn btn-primary">Connexion</a>';
+        echo '</form>';
+    }
+    ?>
+</nav>
 
 <!-- Header avec l'image de fond -->
 <header>
