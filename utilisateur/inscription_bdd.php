@@ -1,11 +1,18 @@
 <?php
 session_start();
 
+function verifdonnées($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupérez les données du formulaire d'inscription
-    $pseudo = $_POST["pseudo"];
-    $email = $_POST["email"];
-    $pass = $_POST["pass"];
+    // Récupérez les données du formulaire d'inscription et appliquez la fonction de validation
+    $pseudo = verifdonnées($_POST["pseudo"]);
+    $email = verifdonnées($_POST["email"]);
+    $pass = verifdonnées($_POST["pass"]);
 
     // Vérifiez si des champs sont vides
     if (empty($pseudo) || empty($email) || empty($pass)) {
